@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188195349}
-  - component: {fileID: 188195348}
+  - component: {fileID: 188195350}
   m_Layer: 0
   m_Name: EasySheets
   m_TagString: Untagged
@@ -140,20 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &188195348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188195347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5fb91ead0ff4beb8c17311b9622bddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sheetsID: 1XREqmisiTbfoYC88aF34eSCIGaxzHfhSmFAmH5MKtqU
-  _range: Test1!A1:A10
 --- !u!4 &188195349
 Transform:
   m_ObjectHideFlags: 0
@@ -169,6 +155,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188195350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188195347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb2a41607f0b5a4789521d4f47f0019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parsedScriptableObjects:
+  - {fileID: 11400000, guid: 442e74070a0d39c48b286814a4ad4ef6, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

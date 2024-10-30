@@ -14,9 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sheetsID: 1XREqmisiTbfoYC88aF34eSCIGaxzHfhSmFAmH5MKtqU
   _ranges:
-  - Characters!A2:A4
-  - Characters!B2:B4
-  - Characters!C2:C4
-  - Characters!D2:D4
-  - Characters!E2:E4
-  - Characters!F2:F4
+  - Characters!A2:F4
+  playerDataList:
+  - name: Marko
+    description: The best
+    stars: 8
+    attackRate: 1.254
+    damage: 35.345
+    rarity: 0
+  - name: Migel
+    description: our best shampoo
+    stars: 10
+    attackRate: 2.254
+    damage: 15.345
+    rarity: 1
+  - name: Luise
+    description: Man of the mans
+    stars: 3
+    attackRate: 0.54
+    damage: 76.345
+    rarity: 3

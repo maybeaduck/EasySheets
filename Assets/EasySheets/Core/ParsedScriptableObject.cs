@@ -16,7 +16,11 @@ namespace EasySheets.Core
             var data = await ParseData();
             PopulateData(data);
         }
-        
+        public virtual async Task PopulateTask()
+        {
+            var data = await ParseData();
+            PopulateData(data);
+        }
         protected abstract void PopulateData(List<ValueRange> data);
         
         protected virtual async Task<List<ValueRange>> ParseData()
