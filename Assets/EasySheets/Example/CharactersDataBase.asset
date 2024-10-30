@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af50dba219336042bdfb3633b84a7d4, type: 3}
+  m_Name: CharactersDataBase
+  m_EditorClassIdentifier: 
+  _sheetsID: 1XREqmisiTbfoYC88aF34eSCIGaxzHfhSmFAmH5MKtqU
+  _ranges:
+  - Characters!A2:A4
+  - Characters!B2:B4
+  - Characters!C2:C4
+  - Characters!D2:D4
+  - Characters!E2:E4
+  - Characters!F2:F4
