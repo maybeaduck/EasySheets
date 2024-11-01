@@ -10,19 +10,18 @@ namespace EasySheets.Example
     public class CharactersDataBase : ParsedScriptableObject
     {
         public List<CharacterData> playerDataList = new List<CharacterData>();
-        protected override void PopulateData(List<ValueRange> data)
+        protected override void PopulateData(ParsedData data)
         {
-            var values = data[0].Values;
-            for (int i = 0; i < values.Count; i++)
+            for (int i = 0; i < data.rowCount; i++)
             {
                 var characterData = new CharacterData
                 {
-                    name = values[i][0].ToString(),
-                    description = values[i][1].ToString(),
-                    stars = int.Parse(values[i][2].ToString()),
-                    attackRate = float.Parse(values[i][3].ToString(), System.Globalization.CultureInfo.InvariantCulture),
-                    damage = float.Parse(values[i][4].ToString(), System.Globalization.CultureInfo.InvariantCulture),
-                    rarity = EnumParser.ParseEnum<Rarity>(values[i][5].ToString())
+                    name = data.GetString(i,0),
+                    description = data.GetString(i,1),
+                    stars = data.GetInt(i,2),
+                    attackRate = data.GetFloat(i,3),
+                    damage = data.GetFloat(i,4),
+                    rarity = data.GetEnum<Rarity>(i,5)
                 };
                 
                 if (playerDataList.Count-1 < i)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Google.Apis.Sheets.v4.Data;
 using UnityEngine;
@@ -8,27 +9,28 @@ namespace EasySheets.Core
     public abstract class ParsedScriptableObject : ScriptableObject
     {
         [SerializeField] private string _sheetsID;
-        [SerializeField] private List<string> _ranges;
+        [SerializeField] private List<RangeData> _ranges;
 
         [ContextMenu("Populate")]
         public virtual async void Populate()
         {
             var data = await ParseData();
-            PopulateData(data);
+            
+            PopulateData(new ParsedData(data));
         }
         public virtual async Task PopulateTask()
         {
             var data = await ParseData();
-            PopulateData(data);
+            PopulateData(new ParsedData(data));
         }
-        protected abstract void PopulateData(List<ValueRange> data);
+        protected abstract void PopulateData(ParsedData data);
         
         protected virtual async Task<List<ValueRange>> ParseData()
         {   
             var values = new List<ValueRange>();
             foreach (var range in _ranges)
             {
-                var data = await GetSheetData(_sheetsID, range);
+                var data = await GetSheetData(_sheetsID, range.range);
                 values.Add(data);
             }
 
@@ -40,5 +42,17 @@ namespace EasySheets.Core
             var googleSheetsService = new GoogleSheetsService(EasyParserConfig.CredentialPath, EasyParserConfig.ApplicationName);
             return await googleSheetsService.GetSheetDataAsync(sheetsID, range);
         }
+    }
+    
+    [Serializable]
+    public class RangeData
+    {
+        [SerializeField] private string _pageName;
+        [SerializeField] private string _range;
+        
+        [Header("Only for documentation purposes")]
+        [TextArea]
+        [SerializeField] private string _description;
+        public string range => _pageName + "!" + _range;
     }
 }
