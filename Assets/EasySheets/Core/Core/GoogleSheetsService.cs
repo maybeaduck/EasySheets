@@ -12,7 +12,7 @@ namespace EasySheets.Core
     public class GoogleSheetsService
     {
         private SheetsService _sheetsService;
-
+        
         public GoogleSheetsService(string credentialsPath, string applicationName)
         {
             GoogleCredential credential;

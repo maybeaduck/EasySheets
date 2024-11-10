@@ -1,10 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace EasySheets.Core
+namespace EasySheets.Core.Editor.Inspector
 {
     [CustomEditor(typeof(ParsedScriptableObject), true)]
-    public class ParsedScriptableObjectEditor : Editor
+    public class ParsedScriptableObjectEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

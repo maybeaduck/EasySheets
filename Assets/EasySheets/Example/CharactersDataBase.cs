@@ -10,31 +10,22 @@ namespace EasySheets.Example
     public class CharactersDataBase : ParsedScriptableObject
     {
         public List<CharacterData> playerDataList = new List<CharacterData>();
-        protected override void PopulateData(ParsedData data)
+        
+        protected override void PopulateData(ParsedDataList data)
         {
-            for (int i = 0; i < data.rowCount; i++)
+            if(data.TryGetParsedData( 0, out var parsedData))
             {
-                var characterData = new CharacterData
+                playerDataList = EasyParser.ParseRowsData( parsedData, i => new CharacterData
                 {
-                    name = data.GetString(i,0),
-                    description = data.GetString(i,1),
-                    stars = data.GetInt(i,2),
-                    attackRate = data.GetFloat(i,3),
-                    damage = data.GetFloat(i,4),
-                    rarity = data.GetEnum<Rarity>(i,5)
-                };
-                
-                if (playerDataList.Count-1 < i)
-                {
-                    playerDataList.Add(characterData);
-                }
-                else
-                {
-                    playerDataList[i] = characterData;
-                }
+                    name = parsedData.GetString(i,0),
+                    description = parsedData.GetString(i,1),
+                    stars = parsedData.GetInt(i,2),
+                    attackRate = parsedData.GetFloat(i,3),
+                    damage = parsedData.GetFloat(i,4),
+                    rarity = parsedData.GetEnum<Rarity>(i,5),
+                    cost = parsedData.GetInt(i,7)
+                });
             }
-
-            Debug.Log("Data populated");
         }
     }
     
@@ -47,6 +38,7 @@ namespace EasySheets.Example
         public float attackRate;
         public float damage;
         public Rarity rarity;
+        public int cost;
     }
 
     public enum Rarity
