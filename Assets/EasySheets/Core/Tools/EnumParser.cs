@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using UnityEngine;
 
 namespace EasySheets.Core
 {
@@ -7,6 +8,8 @@ namespace EasySheets.Core
     {
         public static T ParseEnum<T>(string enumString) where T : struct, Enum
         {
+            Debug.Log(enumString);
+            enumString = enumString.Replace(" ", "");
             if (Enum.TryParse<T>(enumString, true, out T result))
             {
                 return result;

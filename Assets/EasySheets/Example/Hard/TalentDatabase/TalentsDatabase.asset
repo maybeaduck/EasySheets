@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f112ebeff6ac7b1409d6565b841065fb, type: 3}
+  m_Name: TalentsDatabase
+  m_EditorClassIdentifier: 
+  _sheetsID: 1XREqmisiTbfoYC88aF34eSCIGaxzHfhSmFAmH5MKtqU
+  _ranges:
+  - _pageName: Talents
+    _range: A2:K
+    _description: 
+  Talents:
+  - Id: 1
+    Name: MagicTrick
+    Chance: 0.5
+    Cooldown: 5
+    Duration: 2
+    Cost: 50
+    Conditions:
+    - Type: 0
+      Value: 0
+    Actions: 020000000300000004000000
+    Effects:
+    - Type: 2
+      Value: 15
+  - Id: 2
+    Name: AwadaKedabra
+    Chance: 1
+    Cooldown: 10
+    Duration: 5
+    Cost: 100
+    Conditions:
+    - Type: 0
+      Value: 0
+    Actions: 0200000003000000
+    Effects:
+    - Type: 3
+      Value: 50
