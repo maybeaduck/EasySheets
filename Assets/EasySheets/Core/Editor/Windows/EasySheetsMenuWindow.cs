@@ -35,7 +35,20 @@ namespace EasySheets.Core.Editor.Windows
                 EditorGUILayout.LabelField("Configure Easy Sheets Settings", EditorStyles.boldLabel);
 
                 _config.ApplicationName = EditorGUILayout.TextField("Application Name", _config.ApplicationName);
+
+                EditorGUILayout.BeginHorizontal();
                 _config.CredentialPath = EditorGUILayout.TextField("Credential Path", _config.CredentialPath);
+                if (GUILayout.Button("Выбрать файл", GUILayout.Width(100)))
+                {
+                    string path = EditorUtility.OpenFilePanel("Select Credential File", "", "");
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        _config.CredentialPath = path;
+                        EditorUtility.SetDirty(_config);
+                    }
+                }
+                EditorGUILayout.EndHorizontal();
+
                 if (GUI.changed)
                 {
                     EditorUtility.SetDirty(_config);
@@ -73,5 +86,4 @@ namespace EasySheets.Core.Editor.Windows
             Debug.Log("EasyParserConfig asset created at " + assetPath);
         }
     }
-
 }
