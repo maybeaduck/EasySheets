@@ -85,12 +85,10 @@ public static class EasyParser
             
             if (i < parsedDataList.Count)
             {
-                // Заменяем существующее значение
                 parsedDataList[i] = parsedValue;
             }
             else
             {
-                // Добавляем новое значение
                 parsedDataList.Add(parsedValue);
             }
         }

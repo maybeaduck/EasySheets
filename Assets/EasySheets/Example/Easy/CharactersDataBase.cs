@@ -7,7 +7,7 @@ using UnityEngine;
 namespace EasySheets.Example
 {
     [CreateAssetMenu(menuName = "Create CharactersDataBase", fileName = "CharactersDataBase", order = 0)]
-    public class CharactersDataBase : ParsedScriptableObject
+    public class  CharactersDataBase : ParsedScriptableObject
     {
         public List<CharacterData> playerDataList = new List<CharacterData>();
         

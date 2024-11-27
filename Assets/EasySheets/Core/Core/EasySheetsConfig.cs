@@ -26,9 +26,5 @@ public class EasySheetsConfig : ScriptableObject
     
     public string ApplicationName = "EasySheets";
     public string CredentialPath = Application.streamingAssetsPath + "/credential.json";
-
-    private void OnEnable()
-    {
-        Service<EasySheetsConfig>.Set(this);
-    }
+    
 }

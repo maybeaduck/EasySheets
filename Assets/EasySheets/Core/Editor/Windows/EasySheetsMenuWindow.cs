@@ -8,7 +8,7 @@ namespace EasySheets.Core.Editor.Windows
     {
         private EasySheetsConfig _config;
 
-        [MenuItem("Tools/Easy Sheets Config")]
+        [MenuItem("Tools/EasySheets/Config")]
         public static void ShowWindow()
         {
             GetWindow<EasySheetsMenuWindow>("Easy Sheets Config");
@@ -27,38 +27,53 @@ namespace EasySheets.Core.Editor.Windows
                 if (GUILayout.Button("Create Config"))
                 {
                     CreateConfig();
-                    EditorUtility.SetDirty(_config);
                 }
             }
             else
             {
                 EditorGUILayout.LabelField("Configure Easy Sheets Settings", EditorStyles.boldLabel);
 
+                EditorGUI.BeginChangeCheck();
+
+                // Поле для названия приложения
                 _config.ApplicationName = EditorGUILayout.TextField("Application Name", _config.ApplicationName);
 
+                // Поле для выбора пути к учетным данным
                 EditorGUILayout.BeginHorizontal();
                 _config.CredentialPath = EditorGUILayout.TextField("Credential Path", _config.CredentialPath);
-                if (GUILayout.Button("Выбрать файл", GUILayout.Width(100)))
+                if (GUILayout.Button("Select file", GUILayout.Width(100)))
                 {
-                    string path = EditorUtility.OpenFilePanel("Select Credential File", "", "");
+                    string path = EditorUtility.OpenFilePanel("Select Credential File", Application.streamingAssetsPath, "json");
                     if (!string.IsNullOrEmpty(path))
                     {
                         _config.CredentialPath = path;
-                        EditorUtility.SetDirty(_config);
                     }
                 }
                 EditorGUILayout.EndHorizontal();
 
-                if (GUI.changed)
+                // Кнопка для открытия папки учетных данных
+                if (GUILayout.Button("Open Credential Folder"))
                 {
-                    EditorUtility.SetDirty(_config);
+                    OpenOrCreateCredentialFolder();
+                }
+
+                // Если данные изменены, сохраняем автоматически
+                if (EditorGUI.EndChangeCheck())
+                {
+                    SaveConfig();
+                }
+
+                // Кнопка для ручного сохранения
+                if (GUILayout.Button("Save"))
+                {
+                    SaveConfig();
                 }
             }
         }
 
         private void LoadOrCreateConfig()
         {
-            string[] assets = AssetDatabase.FindAssets("t:EasyParserConfig");
+            string[] assets = AssetDatabase.FindAssets("t:EasySheetsConfig");
             if (assets.Length > 0)
             {
                 string path = AssetDatabase.GUIDToAssetPath(assets[0]);
@@ -84,6 +99,28 @@ namespace EasySheets.Core.Editor.Windows
             AssetDatabase.SaveAssets();
 
             Debug.Log("EasyParserConfig asset created at " + assetPath);
+        }
+
+        private void SaveConfig()
+        {
+            if (_config != null)
+            {
+                EditorUtility.SetDirty(_config); // Помечаем объект как измененный
+                AssetDatabase.SaveAssets();     // Сохраняем изменения в базу данных
+                AssetDatabase.Refresh();       // Обновляем состояние базы данных
+                Debug.Log("Config saved.");
+            }
+        }
+
+        private void OpenOrCreateCredentialFolder()
+        {
+            string folderPath = Application.streamingAssetsPath;
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+                Debug.Log("Credential folder created at " + folderPath);
+            }
+            EditorUtility.RevealInFinder(folderPath);
         }
     }
 }

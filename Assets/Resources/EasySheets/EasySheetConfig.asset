@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644444a901aa7c241956a624499959f2, type: 3}
   m_Name: EasySheetConfig
   m_EditorClassIdentifier: 
-  ApplicationName: EasySheets
-  CredentialPath: F:/Unity/EasySheets/Assets/StreamingAssets/credential.json
+  ApplicationName: TutorEasySheets
+  CredentialPath: F:/Unity/EasySheets/Assets/StreamingAssets/tutoreasysheets-dcef294b85aa.json
