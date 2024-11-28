@@ -26,7 +26,7 @@ Git - https://github.com/maybeaduck/EasySheets
 
 Developer - Mykola Karakuts **maybeagoose.games@gmail.com**
 
-Release - 
+Release - https://github.com/maybeaduck/EasySheets/releases/tag/EasySheets
 
 </aside>
 Test Table: https://docs.google.com/spreadsheets/d/1XREqmisiTbfoYC88aF34eSCIGaxzHfhSmFAmH5MKtqU/edit?gid=1940667006#gid=1940667006
