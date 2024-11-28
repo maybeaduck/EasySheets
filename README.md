@@ -6,7 +6,7 @@
 [Instalation Guide](https://jagged-pot-6d5.notion.site/Instalation-Guide-14b203b1ce2380fc9831f8a81ca64034)
 
 [Examples](https://jagged-pot-6d5.notion.site/Examples-14b203b1ce23808ea303e92b86cb7cef)
-
+ 
 <aside>
 💡
 
