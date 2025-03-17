@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EasySheetConfig
   m_EditorClassIdentifier: 
   ApplicationName: TutorEasySheets
-  CredentialPath: F:/Unity/EasySheets/Assets/StreamingAssets/tutoreasysheets-dcef294b85aa.json
+  FileName: credential.json

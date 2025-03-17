@@ -105,6 +105,8 @@ namespace EasySheets.Core.Editor.Windows
         {
             if (_config != null)
             {
+                EasySheetsConfig.Instance.ApplicationName = _config.ApplicationName;
+                EasySheetsConfig.Instance.CredentialPath = _config.CredentialPath;
                 EditorUtility.SetDirty(_config); // Помечаем объект как измененный
                 AssetDatabase.SaveAssets();     // Сохраняем изменения в базу данных
                 AssetDatabase.Refresh();       // Обновляем состояние базы данных

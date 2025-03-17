@@ -25,6 +25,8 @@ public class EasySheetsConfig : ScriptableObject
     }
     
     public string ApplicationName = "EasySheets";
-    public string CredentialPath = Application.streamingAssetsPath + "/credential.json";
+    public string CredentialPath;
+    public string FileName;
+    public string Path => Application.streamingAssetsPath + "/" + FileName;
     
 }

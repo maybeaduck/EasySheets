@@ -7,7 +7,14 @@ using Google.Apis.Sheets.v4.Data;
 
 public static class EasyParser
 {
-    private static GoogleSheetsService _googleSheetsService = new GoogleSheetsService(EasySheetsConfig.Instance.CredentialPath, EasySheetsConfig.Instance.ApplicationName);
+#if UNITY_EDITOR
+    // private static GoogleSheetsService _googleSheetsService = new GoogleSheetsService(EasySheetsConfig.Instance.CredentialPath, EasySheetsConfig.Instance.ApplicationName);
+    private static GoogleSheetsService _googleSheetsService = new GoogleSheetsService(EasySheetsConfig.Instance.Path, EasySheetsConfig.Instance.ApplicationName);
+
+#else
+    private static GoogleSheetsService _googleSheetsService = new GoogleSheetsService(EasySheetsConfig.Instance.Path, EasySheetsConfig.Instance.ApplicationName);
+
+#endif
     
     public static List<T> ParseRowsData<T>(ParsedData data, Func<int, T> parseFunc)
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace EasySheets.Core
 {
@@ -24,7 +25,7 @@ namespace EasySheets.Core
         /// <returns>A list of floats parsed from the input string.</returns>
         public static List<float> GetFloatList(string s, char separator = '/')
         {
-            return new List<float>(s.Split(separator).Select(float.Parse));
+            return new List<float>(s.Split(separator).Select(GetFloat));
         }
         
         /// <summary>
@@ -79,6 +80,19 @@ namespace EasySheets.Core
         public static T GetEnum<T>(string s) where T : struct, System.Enum
         {
             return EnumParser.ParseEnum<T>(s);
+        }
+
+        public static Vector3 GetVector3(string squadStateParameter)
+        {
+            var values = squadStateParameter.Split('/');
+            if (values.Length == 3)
+            {
+                return new Vector3(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2]));
+            }
+            else
+            {
+                return Vector3.zero;
+            }
         }
     }
 }

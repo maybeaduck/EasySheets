@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace EasySheets.Core.Core
@@ -8,6 +9,7 @@ namespace EasySheets.Core.Core
     {
         public event Action OnSheetsParsed;
         [field: SerializeField] public List<ParsedScriptableObject> parsedScriptableObjects { get; private set; }
+        [SerializeField] TMP_Text _progressText;
         private int _populatedCount = 0;
         public float progress => _populatedCount / (float)parsedScriptableObjects.Count;
         public void Awake()
@@ -39,6 +41,7 @@ namespace EasySheets.Core.Core
             if( _populatedCount >= parsedScriptableObjects.Count)
             {
                 OnSheetsParsed?.Invoke();
+                _progressText.gameObject.SetActive(true);
                 Debug.Log("All data populated");
             }
         }
